@@ -24,8 +24,8 @@ export class ProfileController {
     @Roles('ADMIN')
     @UseGuards(JwtAuthGuard)
     @Put()
-    update(@Body() dto: CreateProfileDto){
-        return this.profileService.updateProfile(dto)
+    update(@Param('id') id: number, @Body() dto: CreateProfileDto){
+        return this.profileService.updateProfile(id, dto)
     }
 
     @Roles("ADMIN")

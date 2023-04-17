@@ -28,8 +28,8 @@ export class ProfileService {
         return await this.profileRepository.findByPk(id, { include: { all: true } })
     }
 
-    async updateProfile(dto: CreateProfileDto) {
-        return await this.profileRepository.update(dto, { where: { id: dto.profileId } })
+    async updateProfile(id: number, dto: CreateProfileDto) {
+        return await this.profileRepository.update(dto, { where: { id } })
     }
 
     async deleteProfileById(id: number) {
